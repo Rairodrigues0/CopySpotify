@@ -11,15 +11,39 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.rai.spotify.ui.theme.SpotifyTheme
 import com.rai.spotify.view.TelaCadastro
+
 
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            TelaCadastro()
+            appNavigation()
         }
     }
 }
+
+@Composable
+fun appNavigation(){
+    val navController = rememberNavController()
+
+    NavHost(navController = navController, startDestination = "telaInicial"){
+        composable(
+            route = "telaInicial"
+        ){
+            TelaInicial(navController)
+        }
+        composable(
+            route = "telaCadastro"
+        ){
+            TelaCadastro(navController)
+        }
+    }
+}
+
+

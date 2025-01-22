@@ -16,13 +16,14 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.rai.spotify.R
 import com.rai.spotify.ui.theme.Black
 import com.rai.spotify.ui.theme.Green
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TelaInicial() {
+fun TelaInicial(navController: NavController) {
     Box(
         modifier = Modifier
             .fillMaxSize() // Preenche toda a tela
@@ -98,7 +99,9 @@ fun TelaInicial() {
             Text(
                 text = "Ainda não possui conta? Cadastre-se",
                 color = Color.White, // Texto em branco
-                modifier = Modifier.clickable {  }
+                modifier = Modifier.clickable {
+                    navController.navigate("telaCadastro")
+                }
             )
         }
     }
