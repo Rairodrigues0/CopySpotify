@@ -30,12 +30,23 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun appNavigation(){
+    //Cria um controlador de navegação (NavController)
+    //rememberNavController() garante que o controlador seja lembrado durante recomposições,
+    // mantendo o estado da navegação
     val navController = rememberNavController()
 
+    // O NavHost é um contêiner que gerencia a navegação entre telas
+    // navController controla as transições entre telas
+    // startDestination = "telaInicial" define a primeira tela exibida quando o app inicia
     NavHost(navController = navController, startDestination = "telaInicial"){
+
+        //Define um destino de navegação com a rota "telaInicial"
         composable(
             route = "telaInicial"
         ){
+
+            //Quando essa rota for acessada, a função TelaInicial(navController) é chamada
+            //navController navega para outras telas
             TelaInicial(navController)
         }
         composable(

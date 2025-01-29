@@ -17,6 +17,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
+import com.google.firebase.ktx.Firebase
 import com.rai.spotify.R
 import com.rai.spotify.ui.theme.Black
 import com.rai.spotify.ui.theme.Green
@@ -24,6 +25,7 @@ import com.rai.spotify.ui.theme.Green
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TelaInicial(navController: NavController) {
+
     Box(
         modifier = Modifier
             .fillMaxSize() // Preenche toda a tela
